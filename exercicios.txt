@@ -1,0 +1,10 @@
+[X] Fazer o analisador reconhecer as palavras reservadas do, while e for.
+[X] Incluir os operadores de comparação.
+[X] Permitir com que o underline possa ser usada em identificadores.
+- Incluir strings. O padrão consiste em um sinal de aspas ("), seguido de qualquer cadeia de caracteres e aspas no final. Se houver o símbolo de aspas no meio da cadeia de caracteres, este símbolo deve ser prececido de dois backslashes (\\).
+[X] Incluir os palavras reservadas float e double.
+[X] Se a primeira letra de um identificador for uma consoante, deve ser impressa a mensagem "oy".
+[X] Se a primeira letra de um identificador for uma vogal, deve ser impressa a mensagem "uy".
+
+- Incluir as palavras SELECT, FROM e WHERE (sem sensibilidade a capitalização).
+- Incluir o token ID, que funciona como o identificador do último exercício.
