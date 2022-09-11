@@ -8,7 +8,6 @@
 
 reserved (if|else|then|while|for|do|float|double)
 relationalOperator (==|!=|<|<=|>|>=|===|!==)
-identifier [_]?[a-zA-Z][a-zA-Z0-9_]+
 oyIdentifier [_]?[^aeiouAEIOU0-9\W][a-zA-Z0-9]+
 uyIdentifier [_]?[aeiouAEIOU][a-zA-Z0-9]+
 string ["].*["]
@@ -28,14 +27,6 @@ lexicalError .*
 
   printf("OP_REL\n");
   printf("Operador relacional encontrado: %s\n", yytext);
-  printf("Tamanho da palavra: %s\n", yyleng);
-}
-
-{identifier} {
-  count++;
-
-  printf("ID\n");
-  printf("Identificador encontrado: %s\n", yytext);
   printf("Tamanho da palavra: %d\n", yyleng);
 }
 
@@ -47,6 +38,34 @@ lexicalError .*
   printf("Tamanho da palavra: %d\n", yyleng);
 }
 
+{uyIdentifier} {
+  count++;
+
+  printf("ID_UY\n");
+  printf("Identificador encontrado: %s\n", yytext);
+  printf("Tamanho da palavra: %d\n", yyleng);
+}
+
+{string} {
+  count++;
+
+  printf("STR\n");
+  printf("String encontrada: %s\n", yytext);
+  printf("Tamanho da palavra: %d\n", yyleng);
+}
+
+{lexicalError} {
+  countErrors++;
+
+  printf("ERRO_LEX\n");
+}
 %%
 
-//funcao principal
+int main() {
+  yylex();
+
+  printf("Total de palavras: %d\n", count);
+  printf("Total de erros: %d\n", countErrors);
+
+  return 0;
+}
